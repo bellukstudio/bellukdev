@@ -17,7 +17,6 @@ npm install
 NEXT_PUBLIC_SUPABASE_URL=https://vmmorthjdohoawgzopew.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
-
 These are safe to ship to the browser — the anon key only ever does what
 Row Level Security allows.
 
