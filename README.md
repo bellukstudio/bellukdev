@@ -80,7 +80,6 @@ src/
   utils/          # cn() class merge helper
 supabase/
   migration.sql   # run this in the Supabase SQL editor
-
 ```
 
 Data flow: **UI → Sections → Services → Supabase → Postgres**. Components
