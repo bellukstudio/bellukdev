@@ -1,5 +1,3 @@
-
-
 Cyberpunk-themed developer portfolio. Next.js 15 (App Router) + TypeScript +
 TailwindCSS + Framer Motion, backed by Supabase (Postgres + Storage + RLS).
 
