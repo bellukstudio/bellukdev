@@ -6,6 +6,7 @@ const supabaseHost = process.env.NEXT_PUBLIC_SUPABASE_URL
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
   images: {
     remotePatterns: [
       ...(supabaseHost
@@ -17,10 +18,17 @@ const nextConfig: NextConfig = {
             },
           ]
         : []),
-       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        pathname: '/ducsvvqsy/**',
+
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/ducsvvqsy/**",
+      },
+
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
       },
     ],
   },
