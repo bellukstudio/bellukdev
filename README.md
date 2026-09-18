@@ -53,7 +53,6 @@ logos, and CV. Copy each file's public URL into the matching column
 ```bash
 npm run dev
 ```
-
 Visit `http://localhost:3000`.
 
 ## 6. Deploy
