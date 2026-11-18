@@ -1,26 +1,25 @@
+
 import { supabase } from "@/lib/supabase";
 import type { ContactInput, ServiceResult } from "@/types";
 
 /**
- * Inserts a new contact message. Relies on an RLS policy that allows
- * public INSERT (but not SELECT/UPDATE/DELETE) on `contacts`.
+ * Inserts a new contact message using the public anon client.
+ *
+ * Do not chain .select() after insert because anonymous
+ * visitors are intentionally not allowed to read contacts.
  */
 export async function sendContactMessage(
   input: ContactInput
-): Promise<ServiceResult<{ id: string }>> {
-  const { data, error } = await supabase
-    .from("contacts")
-    .insert({
-      name: input.name,
-      email: input.email,
-      message: input.message,
-    })
-    .select("id")
-    .single();
+): Promise<ServiceResult<null>> {
+  const { error } = await supabase.from("contacts").insert({
+    name: input.name.trim(),
+    email: input.email.trim(),
+    message: input.message.trim(),
+  });
 
   if (error) {
     return { data: null, error: error.message };
   }
 
-  return { data, error: null };
+  return { data: null, error: null };
 }
